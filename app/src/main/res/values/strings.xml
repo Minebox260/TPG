@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TPG</string>
+    <string name="scanner_un_qr_code">Scanner un QR code</string>
+    <string name="rechercher_une_machine_par_son_id">Rechercher une machine par son id</string>
+    <string name="appeler_un_expert">Appeler un expert</string>
+    <string name="preferences">Préférences</string>
+    <string name="entrez_l_id_d_une_machine">Entrez l\'id d\'une machine</string>
+    <string name="machine_id">Machine id :</string>
+    <string name="ok">OK</string>
+    <string name="id_de_la_machine">Id de la machine :</string>
+    <string name="nom_de_la_machine">Nom de la machine :</string>
+</resources>
