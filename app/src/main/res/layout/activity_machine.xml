@@ -47,14 +47,148 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nom_de_la_machine"
+            android:text="@string/raw_output"
             android:textColor="@color/black"
             android:layout_marginEnd="4dp"/>
         <TextView
+            android:id="@+id/txtRawOutput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="nom_machine"
+            tools:text="Raw output"
             android:textColor="@color/black" />
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nom"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="name"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mod_le"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/marque"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_d_heures"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineHoursUsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_d_utilisations"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineInterventionsCounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_de_mise_en_service"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"/>
+        <TextView
+            android:id="@+id/txtMachineServiceStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="type"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+  </LinearLayout>

@@ -8,5 +8,12 @@
     <string name="machine_id">Machine id :</string>
     <string name="ok">OK</string>
     <string name="id_de_la_machine">Id de la machine :</string>
-    <string name="nom_de_la_machine">Nom de la machine :</string>
+    <string name="raw_output">Raw Output :</string>
+    <string name="nombre_d_utilisations">Nombre d\'utilisations :</string>
+    <string name="nombre_d_heures">Nombre d\'heures :</string>
+    <string name="marque">Marque :</string>
+    <string name="mod_le">Modèle :</string>
+    <string name="type">Type :</string>
+    <string name="nom">Nom :</string>
+    <string name="date_de_mise_en_service">Date de mise en service :</string>
 </resources>

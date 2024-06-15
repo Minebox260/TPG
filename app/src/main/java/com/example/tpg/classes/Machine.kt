@@ -1,22 +1,13 @@
 package com.example.tpg.classes
 
-class Machine(private var id: String) {
-    private var name: String = "";
-
-    fun setId(id: String) {
-        this.id = id;
-    }
-
-    fun getId(): String {
-        return this.id;
-    }
-
-    fun setName(name: String) {
-        this.name = name;
-    }
-
-    fun getName(): String {
-        return this.name;
-    }
-
-}
+data class Machine(
+    val serial_number: String,
+    val created_at: String,
+    val name: String,
+    val type: String,
+    val model: String,
+    val brand: String,
+    val service_start_date: String,
+    val hours_used: Int,
+    val interventions_counts: Int
+)
