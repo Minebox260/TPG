@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,22 +23,10 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnScannerQRCode: Button = findViewById(R.id.btnScannerQRCode)
-        val btnChercherMachine: Button = findViewById(R.id.btnChercherMachine)
-        val btnAppelerExpert: Button = findViewById(R.id.btnAppelerExpert)
+        val btnLogin: Button = findViewById(R.id.start_button)
 
-        btnScannerQRCode.setOnClickListener {
-            val myIntent = Intent(this, ScannerActivity::class.java)
-            startActivity(myIntent)
-        }
-
-        btnChercherMachine.setOnClickListener {
-            val myIntent = Intent(this, MachineSearchActivity::class.java)
-            startActivity(myIntent)
-        }
-
-        btnAppelerExpert.setOnClickListener {
-            val myIntent = Intent(this, ExpertCallActivity::class.java)
+        btnLogin.setOnClickListener {
+            val myIntent = Intent(this, LoginActivity::class.java)
             startActivity(myIntent)
         }
     }

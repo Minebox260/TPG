@@ -16,4 +16,16 @@
     <string name="type">Type :</string>
     <string name="nom">Nom :</string>
     <string name="date_de_mise_en_service">Date de mise en service :</string>
+    <string name="tpg_logo">TPG logo</string>
+    <string name="se_connecter">Se connecter</string>
+    <string name="default_user_logo">Default User Logo</string>
+    <string name="identifiant">Identifiant</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="connexion_reussie">Connexion réussie</string>
+    <string name="connexion_manquant">Veuillez indiquer votre email et votre mot de pass</string>
+    <string name="connexion_echoue">Impossible de se connecter</string>
+    <string name="maintenances_menu_logo">Maintenances Menu Logo</string>
+    <string name="scan_menu_logo">Scan Menu Logo</string>
+    <string name="history_menu_logo">History Menu Logo</string>
+    <string name="profile_menu_logo">Profile Menu Logo</string>
 </resources>

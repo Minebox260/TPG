@@ -2,7 +2,6 @@ package com.example.tpg.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -51,7 +50,7 @@ class MachineActivity : AppCompatActivity() {
 
     private fun getMachine(serialNumber: String, output: TextView, machineName: TextView, machineType: TextView, machineModel: TextView, machineBrand: TextView, machineHoursUsed: TextView, machineInterventionsCounts: TextView, machineServiceStartDate: TextView) {
         lifecycleScope.launch {
-            val responseString = DataProvider.retrofitService.getMachine(serial_number= "eq.$serialNumber")
+            /*val responseString = DataProvider.retrofitService.getMachine(serial_number= "eq.$serialNumber")
             Log.d("PMR", responseString)
             output.text = responseString
 
@@ -64,6 +63,8 @@ class MachineActivity : AppCompatActivity() {
             machineHoursUsed.text = machine.hours_used.toString()
             machineInterventionsCounts.text = machine.interventions_counts.toString()
             machineServiceStartDate.text = machine.service_start_date
+            */
+
         }
     }
 
