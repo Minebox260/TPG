@@ -1,8 +1,6 @@
 [versions]
-agp = "8.4.1"
-bom = "2.5.0"
+agp = "8.4.2"
 codeScanner = "2.3.0"
-converterScalars = "2.9.0"
 gson = "2.11.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -14,16 +12,12 @@ ktorClientAndroid = "2.3.11"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
-materialVersion = "1.6.1"
 preferenceKtx = "1.2.1"
-preferenceKtxVersion = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-preference-ktx-v120 = { module = "androidx.preference:preference-ktx", version.ref = "preferenceKtxVersion" }
-bom = { module = "io.github.jan-tennert.supabase:bom", version.ref = "bom" }
+bom = { module = "io.github.jan-tennert.supabase:bom", version = "2.5.0" }
 code-scanner = { module = "com.github.yuriy-budiyev:code-scanner", version.ref = "codeScanner" }
-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -34,7 +28,6 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
-material-v161 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
 
 [plugins]

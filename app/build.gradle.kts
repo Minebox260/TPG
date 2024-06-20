@@ -44,11 +44,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.preference.ktx.v120)
+    implementation(libs.androidx.preference.ktx)
     implementation(libs.code.scanner)
-    implementation(libs.converter.scalars)
     implementation(libs.gson)
-    implementation(libs.bom)
+
+    implementation(platform(libs.bom.get().toString()))
     implementation(libs.postgrest.kt)
     implementation(libs.ktor.client.android)
 }
