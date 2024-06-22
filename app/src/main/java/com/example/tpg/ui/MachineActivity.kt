@@ -2,81 +2,91 @@ package com.example.tpg.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.example.tpg.R
 import com.example.tpg.classes.Machine
 import com.example.tpg.data.DataProvider
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.Picasso
+import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.launch
 
-class MachineActivity : AppCompatActivity() {
-    private val gson = Gson()
+class MachineActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_machine)
-        setSupportActionBar(findViewById(R.id.my_toolbar))
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        layoutInflater.inflate(R.layout.activity_machine, findViewById(R.id.content_frame), true)
 
-        val txtMachineId: TextView = findViewById(R.id.txtMachineId)
-        val txtRawOutput: TextView = findViewById(R.id.txtRawOutput)
-        val txtMachineName: TextView = findViewById(R.id.txtMachineName)
-        val txtMachineType: TextView = findViewById(R.id.txtMachineType)
-        val txtMachineModel: TextView = findViewById(R.id.txtMachineModel)
-        val txtMachineBrand: TextView = findViewById(R.id.txtMachineBrand)
-        val txtMachineHoursUsed: TextView = findViewById(R.id.txtMachineHoursUsed)
-        val txtMachineInterventionsCounts: TextView = findViewById(R.id.txtMachineInterventionsCounts)
-        val txtMachineServiceStartDate: TextView = findViewById(R.id.txtMachineServiceStartDate)
+        val txtID: TextView = findViewById(R.id.txtID)
+        val txtMarque: TextView = findViewById(R.id.txtMarque)
+        val txtModele: TextView = findViewById(R.id.txtModele)
+        val txtHorodatage: TextView = findViewById(R.id.txtHorodatage)
+        val txtType: TextView = findViewById(R.id.txtType)
+        val txtProvenance: TextView = findViewById(R.id.txtProvenance)
+        val txtNbMaintenances: TextView = findViewById(R.id.txtNbMaintenances)
+        val txtDateMiseEnService: TextView = findViewById(R.id.txtDateMiseEnService)
+        val imageMachine: ImageView = findViewById(R.id.machineImage)
 
         val machineId = intent.getStringExtra("machineId")
+        val ajouterMaintenanceBtn: Button = findViewById(R.id.nouvelle_maintenance_button)
 
         if (machineId != null) {
-            txtMachineId.text = machineId
-            getMachine(machineId, txtRawOutput, txtMachineName, txtMachineType, txtMachineModel, txtMachineBrand, txtMachineHoursUsed, txtMachineInterventionsCounts, txtMachineServiceStartDate)
+            txtID.text = machineId
+            getMachine(
+                machineId,
+                txtMarque,
+                txtModele,
+                txtHorodatage,
+                txtType,
+                txtProvenance,
+                txtNbMaintenances,
+                txtDateMiseEnService,
+                imageMachine)
+        }
+
+        ajouterMaintenanceBtn.setOnClickListener {
+            val intent = Intent(this, MachineActivity::class.java)
+            intent.putExtra("machineId", machineId)
+            startActivity(intent)
         }
     }
 
-    private fun getMachine(serialNumber: String, output: TextView, machineName: TextView, machineType: TextView, machineModel: TextView, machineBrand: TextView, machineHoursUsed: TextView, machineInterventionsCounts: TextView, machineServiceStartDate: TextView) {
+    private fun getMachine(
+        serialNumber: String,
+        txtMarque: TextView,
+        txtModele: TextView,
+        txtHorodatage: TextView,
+        txtType: TextView,
+        txtProvenance: TextView,
+        txtNbMaintenances: TextView,
+        txtDateMiseEnService: TextView,
+        imageMachine: ImageView) {
+
         lifecycleScope.launch {
-            /*val responseString = DataProvider.retrofitService.getMachine(serial_number= "eq.$serialNumber")
-            Log.d("PMR", responseString)
-            output.text = responseString
+            val machine = DataProvider.supabase.from("machines").select {
+                filter {
+                    Machine::serial_number eq serialNumber
+                }
+            }.decodeSingleOrNull<Machine>()
 
-            val listType = object : TypeToken<List<Machine>>() {}.type
-            val machine = Gson().fromJson<List<Machine>>(responseString, listType).first()
-            machineName.text = machine.name
-            machineType.text = machine.type
-            machineModel.text = machine.model
-            machineBrand.text = machine.brand
-            machineHoursUsed.text = machine.hours_used.toString()
-            machineInterventionsCounts.text = machine.interventions_counts.toString()
-            machineServiceStartDate.text = machine.service_start_date
-            */
+            if (machine != null) {
+                txtMarque.text = machine.type
+                txtModele.text = machine.model
+                txtHorodatage.text = machine.brand
+                txtType.text = machine.hours_used.toString()
+                txtProvenance.text = machine.origin
+                txtNbMaintenances.text = machine.interventions_count.toString()
+                txtDateMiseEnService.text = machine.service_start_date
+                Picasso.get().load(machine.photo_link).into(imageMachine)
+            } else {
+                Toast.makeText(this@MachineActivity, "Impossible de trouver la machine", Toast.LENGTH_SHORT).show()
+                finish()
+                val intent = Intent(this@MachineActivity, ScannerActivity::class.java)
+                startActivity(intent)
 
+            }
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val myIntent = Intent(this, SettingsActivity::class.java)
-        startActivity(myIntent)
-
-        return super.onOptionsItemSelected(item)
     }
 }

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -47,6 +48,7 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
     implementation(libs.code.scanner)
     implementation(libs.gson)
+    implementation (libs.squareup.picasso)
 
     implementation(platform(libs.bom.get().toString()))
     implementation(libs.postgrest.kt)

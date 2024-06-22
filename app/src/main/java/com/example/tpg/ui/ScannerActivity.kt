@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -32,10 +34,7 @@ class ScannerActivity : BaseActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, MachineActivity::class.java)
-                intent.putExtra("machineId", it.text)
-                startActivity(intent)
+                startMachineIntent(it.text)
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
@@ -48,6 +47,25 @@ class ScannerActivity : BaseActivity() {
         scannerView.setOnClickListener {
             codeScanner.startPreview()
         }
+
+        val machineEditText: EditText = findViewById(R.id.machine_scan_text)
+        val btnScan: Button = findViewById(R.id.scan_button)
+
+        btnScan.setOnClickListener {
+            val machineId = machineEditText.text.toString()
+
+            if (machineId.isNotEmpty()) {
+                startMachineIntent(machineId)
+            } else {
+                Toast.makeText(this, "Veuillez indiquer l'ID de la machine", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun startMachineIntent(machineId: String) {
+        val intent = Intent(this, MachineActivity::class.java)
+        intent.putExtra("machineId", machineId)
+        startActivity(intent)
     }
 
     override fun onResume() {

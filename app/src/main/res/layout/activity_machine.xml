@@ -1,194 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MachineActivity"
-    android:orientation="vertical"
+    android:orientation="horizontal"
+    android:gravity="center"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        app:title="Machine"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
-        android:background="#303030"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
+    <ImageView
+        android:id="@+id/machineImage"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/image_machine_description"
+        android:paddingHorizontal="20dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/id_de_la_machine"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="machine_id"
-            android:textColor="@color/black" />
-    </LinearLayout>
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:baselineAligned="true"
+            tools:ignore="NestedWeights">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mod_le"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtModele"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="modele"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/raw_output"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtRawOutput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Raw output"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/type"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="type"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nom"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="name"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/horodatage"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtHorodatage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="horodatage"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/type"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date_de_mise_en_service"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtDateMiseEnService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="date"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mod_le"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineModel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/marque"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineBrand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/marque"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtMarque"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="marque"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_d_heures"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineHoursUsed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/id_de_la_machine"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="ID"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre_d_utilisations"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineInterventionsCounts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nombre_maintenances"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtNbMaintenances"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Nb maintenances"
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_de_mise_en_service"
-            android:textColor="@color/black"
-            android:layout_marginEnd="4dp"/>
-        <TextView
-            android:id="@+id/txtMachineServiceStartDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="type"
-            android:textColor="@color/black" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/provenance"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtProvenance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="provenance"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
 
+            <Button
+                android:id="@+id/nouvelle_maintenance_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/primary"
+                android:elevation="4dp"
+                android:stateListAnimator="@animator/button_state_list_animator"
+                android:text="@string/ajouter_une_maintenance"
+
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck" />
+        </FrameLayout>
+    </LinearLayout>
   </LinearLayout>

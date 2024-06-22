@@ -29,11 +29,6 @@
             android:screenOrientation="landscape"
             tools:ignore="DiscouragedApi"/>
         <activity
-            android:name=".ui.MachineSearchActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            tools:ignore="DiscouragedApi"/>
-        <activity
             android:name=".ui.ExpertCallActivity"
             android:exported="false"
             android:screenOrientation="landscape"

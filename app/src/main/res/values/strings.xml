@@ -28,4 +28,11 @@
     <string name="scan_menu_logo">Scan Menu Logo</string>
     <string name="history_menu_logo">History Menu Logo</string>
     <string name="profile_menu_logo">Profile Menu Logo</string>
+    <string name="image_machine_description">Machine image</string>
+    <string name="ajouter_une_maintenance">Ajouter une maintenance</string>
+    <string name="provenance">Provenance :</string>
+    <string name="nombre_maintenances">Nombre maintenances :</string>
+    <string name="horodatage">Horodatage :</string>
+    <string name="je_connais_l_id_de_la_machine">Je connais l\'ID de la machine</string>
+    <string name="valider">Valider</string>
 </resources>
