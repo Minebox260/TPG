@@ -2,8 +2,10 @@ package com.example.tpg.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.example.tpg.R
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -13,12 +15,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_base)
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val email = sharedPreferences.getString("email", "")
+
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.my_toolbar)
         setSupportActionBar(toolbar)
 
         val maintenances: ImageView = findViewById(R.id.nav_maintenances)
         maintenances.setOnClickListener {
-            val myIntent = Intent(this, ScannerActivity::class.java)
+            val myIntent = Intent(this, MaintenanceActivity::class.java)
             startActivity(myIntent)
         }
         val scan: ImageView = findViewById(R.id.nav_scan)
@@ -28,7 +33,8 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         val history: ImageView = findViewById(R.id.nav_history)
         history.setOnClickListener {
-            val myIntent = Intent(this, ScannerActivity::class.java)
+            val myIntent = Intent(this, MaintenanceActivity::class.java)
+            myIntent.putExtra("email", email)
             startActivity(myIntent)
         }
         val profile: ImageView = findViewById(R.id.nav_profile)

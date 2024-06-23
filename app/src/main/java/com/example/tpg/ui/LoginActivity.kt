@@ -1,6 +1,7 @@
 package com.example.tpg.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.preference.PreferenceManager
 import com.example.tpg.R
 import com.example.tpg.data.DataProvider
 import io.github.jan.supabase.gotrue.providers.builtin.Email
@@ -32,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+
         val usernameEditText: EditText = findViewById(R.id.username)
         val passwordEditText: EditText = findViewById(R.id.password)
 
@@ -42,14 +46,14 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                login(email, password)
+                login(email, password, sharedPreferences)
             } else {
                 Toast.makeText(this, getString(R.string.connexion_manquant), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun login(email: String, password: String) {
+    private fun login(email: String, password: String, sharedPreferences: SharedPreferences) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 DataProvider.supabase.auth.signInWith(Email) {
@@ -59,6 +63,9 @@ class LoginActivity : AppCompatActivity() {
 
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@LoginActivity, getString(R.string.connexion_reussie), Toast.LENGTH_SHORT).show()
+                    val editor = sharedPreferences.edit()
+                    editor.putString("email", email)
+                    editor.apply()
                     val myIntent = Intent(this@LoginActivity, ScannerActivity::class.java)
                     startActivity(myIntent)
                     finish()

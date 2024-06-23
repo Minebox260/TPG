@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/maintenance_background"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        >
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/default_user_logo"
+            app:srcCompat="@drawable/default_user" />
+
+        <TextView
+            android:id="@+id/txtUserEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            tools:text="test.test@mail.com"
+            android:paddingHorizontal="5dp"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/maintenanceImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/maintenance_image"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/txtMaintenanceDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="Description"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/marque"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/txtMachineModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="D10"
+            android:textSize="12sp"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/mod_le"
+            android:textSize="12sp"
+
+            />
+
+        <TextView
+            android:id="@+id/txtMachineBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="D10"
+            android:textSize="12sp"
+
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="@string/id"
+            android:textSize="12sp"
+
+            />
+
+        <TextView
+            android:id="@+id/txtMachineId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="D10"
+            android:textSize="12sp"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.2"
+agp = "8.5.0"
 codeScanner = "2.3.0"
 gson = "2.11.0"
 kotlin = "1.9.0"

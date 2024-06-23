@@ -35,4 +35,6 @@
     <string name="horodatage">Horodatage :</string>
     <string name="je_connais_l_id_de_la_machine">Je connais l\'ID de la machine</string>
     <string name="valider">Valider</string>
+    <string name="maintenance_image">Maintenance image</string>
+    <string name="id">id :</string>
 </resources>
