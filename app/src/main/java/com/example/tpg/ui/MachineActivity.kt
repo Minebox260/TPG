@@ -30,6 +30,7 @@ class MachineActivity : BaseActivity() {
         val imageMachine: ImageView = findViewById(R.id.machineImage)
 
         val machineId = intent.getStringExtra("machineId")
+        val maintenancesBtn: Button = findViewById(R.id.maintenances_button)
         val ajouterMaintenanceBtn: Button = findViewById(R.id.nouvelle_maintenance_button)
 
         if (machineId != null) {
@@ -44,6 +45,12 @@ class MachineActivity : BaseActivity() {
                 txtNbMaintenances,
                 txtDateMiseEnService,
                 imageMachine)
+        }
+
+        maintenancesBtn.setOnClickListener {
+            val intent = Intent(this, MaintenanceActivity::class.java)
+            intent.putExtra("machineId", machineId)
+            startActivity(intent)
         }
 
         ajouterMaintenanceBtn.setOnClickListener {
@@ -72,10 +79,10 @@ class MachineActivity : BaseActivity() {
             }.decodeSingleOrNull<Machine>()
 
             if (machine != null) {
-                txtMarque.text = machine.type
+                txtMarque.text = machine.brand
                 txtModele.text = machine.model
-                txtHorodatage.text = machine.brand
-                txtType.text = machine.hours_used.toString()
+                txtHorodatage.text = machine.hours_used.toString()
+                txtType.text = machine.type
                 txtProvenance.text = machine.origin
                 txtNbMaintenances.text = machine.interventions_count.toString()
                 txtDateMiseEnService.text = machine.service_start_date

@@ -35,11 +35,12 @@ class MaintenanceActivity : BaseActivity() {
         refItems.adapter = adapter
 
         val userEmail = intent.getStringExtra("email")
+        val machineId = intent.getStringExtra("machineId")
 
-        getMaintenances(userEmail)
+        getMaintenances(userEmail, machineId)
     }
 
-    private fun getMaintenances(userEmail: String?) {
+    private fun getMaintenances(userEmail: String?, machineId: String?) {
 
         lifecycleScope.launch {
             val columns = Columns.raw("""
@@ -51,19 +52,28 @@ class MaintenanceActivity : BaseActivity() {
                 profiles!inner(*)
             """.trimIndent())
             var maintenances: List<Maintenance>
-            if (userEmail.isNullOrEmpty()) {
-                maintenances = DataProvider.supabase.from("maintenances").select(
-                    columns = columns
-                ) {
-                    order(column = "created_at", order = Order.DESCENDING)
-                }.decodeList<Maintenance>()
-            } else {
+            if (!userEmail.isNullOrEmpty()) {
                 maintenances = DataProvider.supabase.from("maintenances").select(
                     columns = columns
                 ) {
                     filter {
                         eq("profiles.email", userEmail)
                     };
+                    order(column = "created_at", order = Order.DESCENDING)
+                }.decodeList<Maintenance>()
+            } else if (!machineId.isNullOrEmpty()) {
+                maintenances = DataProvider.supabase.from("maintenances").select(
+                    columns = columns
+                ) {
+                    filter {
+                        eq("machines.serial_number", machineId)
+                    };
+                    order(column = "created_at", order = Order.DESCENDING)
+                }.decodeList<Maintenance>()
+            } else {
+                maintenances = DataProvider.supabase.from("maintenances").select(
+                    columns = columns
+                ) {
                     order(column = "created_at", order = Order.DESCENDING)
                 }.decodeList<Maintenance>()
             }
