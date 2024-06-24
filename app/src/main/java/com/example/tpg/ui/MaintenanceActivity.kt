@@ -34,13 +34,13 @@ class MaintenanceActivity : BaseActivity() {
         refItems.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         refItems.adapter = adapter
 
-        val userEmail = intent.getStringExtra("email")
+        val userId = intent.getStringExtra("userId")
         val machineId = intent.getStringExtra("machineId")
 
-        getMaintenances(userEmail, machineId)
+        getMaintenances(userId, machineId)
     }
 
-    private fun getMaintenances(userEmail: String?, machineId: String?) {
+    private fun getMaintenances(userId: String?, machineId: String?) {
 
         lifecycleScope.launch {
             val columns = Columns.raw("""
@@ -52,12 +52,12 @@ class MaintenanceActivity : BaseActivity() {
                 profiles!inner(*)
             """.trimIndent())
             var maintenances: List<Maintenance>
-            if (!userEmail.isNullOrEmpty()) {
+            if (!userId.isNullOrEmpty()) {
                 maintenances = DataProvider.supabase.from("maintenances").select(
                     columns = columns
                 ) {
                     filter {
-                        eq("profiles.email", userEmail)
+                        eq("user_id", userId)
                     };
                     order(column = "created_at", order = Order.DESCENDING)
                 }.decodeList<Maintenance>()

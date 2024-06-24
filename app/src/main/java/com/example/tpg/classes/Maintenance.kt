@@ -9,5 +9,5 @@ data class Maintenance(
     val description: String,
     val image_link: String,
     val machines: Machine,
-    val profiles: User
+    val user_id: String
 )

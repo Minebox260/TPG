@@ -16,7 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_base)
 
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val email = sharedPreferences.getString("email", "")
+        val userId = sharedPreferences.getString("user_id", "")
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.my_toolbar)
         setSupportActionBar(toolbar)
@@ -34,12 +34,13 @@ abstract class BaseActivity : AppCompatActivity() {
         val history: ImageView = findViewById(R.id.nav_history)
         history.setOnClickListener {
             val myIntent = Intent(this, MaintenanceActivity::class.java)
-            myIntent.putExtra("email", email)
+            myIntent.putExtra("user_id", userId)
             startActivity(myIntent)
         }
         val profile: ImageView = findViewById(R.id.nav_profile)
         profile.setOnClickListener {
-            val myIntent = Intent(this, ScannerActivity::class.java)
+            val myIntent = Intent(this, ProfileActivity::class.java)
+            myIntent.putExtra("user_id", userId)
             startActivity(myIntent)
         }
     }

@@ -38,4 +38,10 @@
     <string name="maintenance_image">Maintenance image</string>
     <string name="id">id :</string>
     <string name="maintenances">Maintenances</string>
+    <string name="profil_image_description">Profil image</string>
+    <string name="se_d_connecter">Se déconnecter</string>
+    <string name="nom_du_technicien">Nom du technicien</string>
+    <string name="email">Email :</string>
+    <string name="t_l_phone">Téléphone</string>
+    <string name="entreprise">Entreprise</string>
 </resources>

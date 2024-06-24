@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MachineActivity"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/profil_image_description"
+        android:paddingHorizontal="20dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:baselineAligned="true"
+            android:gravity="center"
+            tools:ignore="NestedWeights">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nom_du_technicien"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtNomTechnicien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="nom_technicien"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="email"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/t_l_phone"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtTelephone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="telephone"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/entreprise"
+                        android:textColor="@color/black"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/txtEntreprise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="entreprise"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="10dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/deconnecter_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/primary"
+                android:elevation="4dp"
+                android:stateListAnimator="@animator/button_state_list_animator"
+                android:text="@string/se_d_connecter"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                tools:ignore="TextContrastCheck" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+  </LinearLayout>
