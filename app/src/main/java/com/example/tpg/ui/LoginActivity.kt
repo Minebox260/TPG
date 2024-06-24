@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@LoginActivity, getString(R.string.connexion_reussie), Toast.LENGTH_SHORT).show()
                     val editor = sharedPreferences.edit()
-                    editor.putString("user_id", DataProvider.supabase.auth.retrieveUserForCurrentSession(false).id)
+                    editor.putString("userId", DataProvider.supabase.auth.retrieveUserForCurrentSession(false).id)
                     editor.apply()
                     val myIntent = Intent(this@LoginActivity, ScannerActivity::class.java)
                     startActivity(myIntent)

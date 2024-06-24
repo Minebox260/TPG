@@ -28,6 +28,11 @@
             android:screenOrientation="sensorLandscape"
             tools:ignore="DiscouragedApi" />
         <activity
+            android:name=".ui.ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            tools:ignore="DiscouragedApi" />
+        <activity
             android:name=".ui.ScannerActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"

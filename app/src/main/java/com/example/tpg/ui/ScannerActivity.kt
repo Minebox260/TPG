@@ -20,6 +20,7 @@ class ScannerActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         layoutInflater.inflate(R.layout.activity_scanner, findViewById(R.id.content_frame), true)
 
+        setActionBarTitle(getString(R.string.scan_machine))
         setupPermissions()
 
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)

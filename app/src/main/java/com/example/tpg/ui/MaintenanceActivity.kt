@@ -1,6 +1,7 @@
 package com.example.tpg.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,38 +21,34 @@ class MaintenanceActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         layoutInflater.inflate(R.layout.activity_maintenance, findViewById(R.id.content_frame), true)
 
+        setActionBarTitle(getString(R.string.maintenance))
         val refItems = findViewById<RecyclerView>(R.id.recyclerViewMaintenances)
         refItems.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         refItems.adapter = adapter
 
-        val userEmail = intent.getStringExtra("email")
+        val userId = intent.getStringExtra("userId")
         val machineId = intent.getStringExtra("machineId")
 
-        getMaintenances(userEmail, machineId)
+        getMaintenances(userId, machineId)
     }
 
-    private fun getMaintenances(userEmail: String?, machineId: String?) {
+    private fun getMaintenances(userId: String?, machineId: String?) {
 
         lifecycleScope.launch {
             val columns = Columns.raw("""
-                id,
-                created_at,
-                description,
-                image_link,
-                machines!inner(*),
-                users!inner(
-                    user_id,
-                    email
-                )
+                *,
+                machines(*),
+                profiles(*)
             """.trimIndent())
             val maintenances: List<Maintenance>
-            if (!userEmail.isNullOrEmpty()) {
+            if (!userId.isNullOrEmpty()) {
+                Log.i("PMR", userId)
                 maintenances = DataProvider.supabase.from("maintenances").select(
                     columns = columns
                 ) {
                     filter {
-                        eq("users.email", userEmail)
-                    };
+                        eq("user_id", userId)
+                    }
                     order(column = "created_at", order = Order.DESCENDING)
                 }.decodeList<Maintenance>()
             } else if (!machineId.isNullOrEmpty()) {
@@ -59,19 +56,23 @@ class MaintenanceActivity : BaseActivity() {
                     columns = columns
                 ) {
                     filter {
-                        eq("machines.serial_number", machineId)
+                        eq("machine_id", machineId)
                     }
                     order(column = "created_at", order = Order.DESCENDING)
                 }.decodeList<Maintenance>()
             } else {
-                maintenances = DataProvider.supabase.from("maintenances").select(
+                Log.i("PMR","hi maintenances")
+                val data = DataProvider.supabase.from("maintenances").select(
                     columns = columns
                 ) {
                     order(column = "created_at", order = Order.DESCENDING)
-                }.decodeList<Maintenance>()
+                }
+                    Log.i("PMR", data.data.toString())
+                        maintenances = data.decodeList<Maintenance>()
             }
 
             if (maintenances.isNotEmpty()) {
+
                 adapter.show(maintenances)
             } else {
                 Toast.makeText(this@MaintenanceActivity, "Aucune maintenance trouvée", Toast.LENGTH_SHORT).show()

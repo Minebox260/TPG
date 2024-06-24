@@ -17,11 +17,11 @@ class MaintenanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
     private val machineId = itemView.findViewById<TextView>(R.id.txtMachineId)
 
     fun bind(maintenance: Maintenance) {
-        userEmail.text = maintenance.users.email
+        userEmail.text = maintenance.profile.email
         description.text = maintenance.description
-        machineModel.text = maintenance.machines.model
-        machineBrand.text = maintenance.machines.brand
-        machineId.text = maintenance.machines.serial_number
+        machineModel.text = maintenance.machine.model
+        machineBrand.text = maintenance.machine.brand
+        machineId.text = maintenance.machine.serial_number
         if (!maintenance.image_link.isNullOrEmpty()) {
             Picasso.get().load(maintenance.image_link).into(maintenanceImage)
         }

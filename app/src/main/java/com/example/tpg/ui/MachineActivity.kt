@@ -19,6 +19,8 @@ class MachineActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         layoutInflater.inflate(R.layout.activity_machine, findViewById(R.id.content_frame), true)
 
+        setActionBarTitle(getString(R.string.machine))
+
         val txtID: TextView = findViewById(R.id.txtID)
         val txtMarque: TextView = findViewById(R.id.txtMarque)
         val txtModele: TextView = findViewById(R.id.txtModele)

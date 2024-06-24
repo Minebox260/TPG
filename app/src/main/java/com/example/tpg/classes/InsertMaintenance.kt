@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 data class InsertMaintenance(
     val id: Int,
     val description: String,
-    val user_id: Int,
+    val user_id: String,
     val machine_id: String,
 )

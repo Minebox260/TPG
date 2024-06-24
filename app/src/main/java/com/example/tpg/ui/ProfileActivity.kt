@@ -22,19 +22,21 @@ class ProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         layoutInflater.inflate(R.layout.activity_profile, findViewById(R.id.content_frame), true)
 
+        setActionBarTitle(getString(R.string.profil))
         val txtNomTechnicien: TextView = findViewById(R.id.txtNomTechnicien)
         val txtEmail: TextView = findViewById(R.id.txtEmail)
         val txtTelephone: TextView = findViewById(R.id.txtTelephone)
         val txtEntreprise: TextView = findViewById(R.id.txtEntreprise)
         val imageProfile: ImageView = findViewById(R.id.profileImage)
 
-        val userId = intent.getStringExtra("userId")
+        // On récupère l'ID fournie, ou, par défaut, celle de l'utilisateur connecté
+        val profileId = intent.getStringExtra("profileId") ?: PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", "")
 
         val logoutBtn: Button = findViewById(R.id.deconnecter_button)
 
-        if (!userId.isNullOrEmpty())
+        if (!profileId.isNullOrEmpty())
             getProfileData(
-                userId,
+                profileId,
                 txtNomTechnicien,
                 txtEmail,
                 txtTelephone,
