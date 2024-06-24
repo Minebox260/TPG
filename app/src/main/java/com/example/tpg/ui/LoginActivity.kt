@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
     private fun login(email: String, password: String, sharedPreferences: SharedPreferences) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val authResult = DataProvider.supabase.auth.signInWith(Email) {
+                DataProvider.supabase.auth.signInWith(Email) {
                     this.email = email
                     this.password = password
                 }
