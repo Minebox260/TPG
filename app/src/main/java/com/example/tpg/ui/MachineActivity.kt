@@ -54,7 +54,7 @@ class MachineActivity : BaseActivity() {
         }
 
         ajouterMaintenanceBtn.setOnClickListener {
-            val intent = Intent(this, MachineActivity::class.java)
+            val intent = Intent(this, CreateMaintenanceActivity::class.java)
             intent.putExtra("machineId", machineId)
             startActivity(intent)
         }
