@@ -49,7 +49,10 @@ class MaintenanceActivity : BaseActivity() {
                 description,
                 image_link,
                 machines!inner(*),
-                profiles!inner(*)
+                users!inner(
+                    user_id,
+                    email
+                )
             """.trimIndent())
             var maintenances: List<Maintenance>
             if (!userEmail.isNullOrEmpty()) {
@@ -57,7 +60,7 @@ class MaintenanceActivity : BaseActivity() {
                     columns = columns
                 ) {
                     filter {
-                        eq("profiles.email", userEmail)
+                        eq("users.email", userEmail)
                     };
                     order(column = "created_at", order = Order.DESCENDING)
                 }.decodeList<Maintenance>()

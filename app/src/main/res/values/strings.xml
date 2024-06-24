@@ -38,4 +38,7 @@
     <string name="maintenance_image">Maintenance image</string>
     <string name="id">id :</string>
     <string name="maintenances">Maintenances</string>
+    <string name="description">Description</string>
+    <string name="op_rateur">Opérateur :</string>
+    <string name="ajouter_la_maintenance">Ajouter la maintenance</string>
 </resources>

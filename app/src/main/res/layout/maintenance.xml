@@ -39,6 +39,7 @@
         android:layout_weight="1"
         android:contentDescription="@string/maintenance_image"
         android:scaleType="centerCrop"
+        app:srcCompat="@drawable/no_image"
         />
 
     <TextView

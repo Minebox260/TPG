@@ -3,11 +3,9 @@ package com.example.tpg.classes
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Maintenance(
+data class InsertMaintenance(
     val id: Int,
-    val created_at: String,
     val description: String,
-    val image_link: String?,
-    val machines: Machine,
-    val users: User
+    val user_id: Int,
+    val machine_id: String,
 )
