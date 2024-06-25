@@ -24,6 +24,7 @@
     <string name="connexion_reussie">Connexion réussie</string>
     <string name="connexion_manquant">Veuillez indiquer votre email et votre mot de pass</string>
     <string name="connexion_echoue">Impossible de se connecter</string>
+    <string name="erreur">Une erreur est survenue</string>
     <string name="maintenances_menu_logo">Maintenances Menu Logo</string>
     <string name="scan_menu_logo">Scan Menu Logo</string>
     <string name="history_menu_logo">History Menu Logo</string>
@@ -47,9 +48,11 @@
     <string name="description">Description</string>
     <string name="op_rateur">Opérateur :</string>
     <string name="ajouter_la_maintenance">Ajouter la maintenance</string>
+    <string name="chargement">Chargement...</string>
     <string name="ajout_de_maintenance">Ajout de maintenance</string>
     <string name="machine">Machine</string>
     <string name="maintenance">Maintenance</string>
     <string name="profil">Profil</string>
     <string name="scan_machine">Scan Machine</string>
+    <string name="prendre_une_photo">Prendre une photo</string>
 </resources>

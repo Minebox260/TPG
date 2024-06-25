@@ -12,7 +12,9 @@ import com.example.tpg.classes.Machine
 import com.example.tpg.data.DataProvider
 import com.squareup.picasso.Picasso
 import io.github.jan.supabase.postgrest.from
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MachineActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,27 +76,33 @@ class MachineActivity : BaseActivity() {
         imageMachine: ImageView) {
 
         lifecycleScope.launch {
-            val machine = DataProvider.supabase.from("machines").select {
-                filter {
-                    Machine::serial_number eq serialNumber
+            try {
+                val machine = DataProvider.supabase.from("machines").select {
+                    filter {
+                        Machine::serial_number eq serialNumber
+                    }
+                }.decodeSingleOrNull<Machine>()
+
+                if (machine != null) {
+                    txtMarque.text = machine.brand
+                    txtModele.text = machine.model
+                    txtHorodatage.text = machine.hours_used.toString()
+                    txtType.text = machine.type
+                    txtProvenance.text = machine.origin
+                    txtNbMaintenances.text = machine.interventions_count.toString()
+                    txtDateMiseEnService.text = machine.service_start_date
+                    Picasso.get().load(machine.photo_link).into(imageMachine)
+                } else {
+                    Toast.makeText(this@MachineActivity, "Impossible de trouver la machine", Toast.LENGTH_SHORT).show()
+                    finish()
+                    val intent = Intent(this@MachineActivity, ScannerActivity::class.java)
+                    startActivity(intent)
+
                 }
-            }.decodeSingleOrNull<Machine>()
-
-            if (machine != null) {
-                txtMarque.text = machine.brand
-                txtModele.text = machine.model
-                txtHorodatage.text = machine.hours_used.toString()
-                txtType.text = machine.type
-                txtProvenance.text = machine.origin
-                txtNbMaintenances.text = machine.interventions_count.toString()
-                txtDateMiseEnService.text = machine.service_start_date
-                Picasso.get().load(machine.photo_link).into(imageMachine)
-            } else {
-                Toast.makeText(this@MachineActivity, "Impossible de trouver la machine", Toast.LENGTH_SHORT).show()
-                finish()
-                val intent = Intent(this@MachineActivity, ScannerActivity::class.java)
-                startActivity(intent)
-
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@MachineActivity, getString(R.string.erreur), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

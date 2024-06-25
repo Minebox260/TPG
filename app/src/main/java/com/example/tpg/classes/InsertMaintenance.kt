@@ -8,4 +8,5 @@ data class InsertMaintenance(
     val description: String,
     val user_id: String,
     val machine_id: String,
+    val image_link: String? = null
 )

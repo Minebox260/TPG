@@ -13,7 +13,9 @@ import com.example.tpg.ui.recyclerview.MaintenanceAdapter
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MaintenanceActivity : BaseActivity() {
     private val adapter = MaintenanceAdapter()
@@ -35,47 +37,52 @@ class MaintenanceActivity : BaseActivity() {
     private fun getMaintenances(userId: String?, machineId: String?) {
 
         lifecycleScope.launch {
-            val columns = Columns.raw("""
-                *,
-                machines(*),
-                profiles(*)
-            """.trimIndent())
-            val maintenances: List<Maintenance>
-            if (!userId.isNullOrEmpty()) {
-                Log.i("PMR", userId)
-                maintenances = DataProvider.supabase.from("maintenances").select(
-                    columns = columns
-                ) {
-                    filter {
-                        eq("user_id", userId)
+            try{
+                val columns = Columns.raw("""
+                    *,
+                    machines(*),
+                    profiles(*)
+                """.trimIndent())
+                val maintenances: List<Maintenance>
+                if (!userId.isNullOrEmpty()) {
+                    Log.i("PMR", userId)
+                    maintenances = DataProvider.supabase.from("maintenances").select(
+                        columns = columns
+                    ) {
+                        filter {
+                            eq("user_id", userId)
+                        }
+                        order(column = "created_at", order = Order.DESCENDING)
+                    }.decodeList<Maintenance>()
+                } else if (!machineId.isNullOrEmpty()) {
+                    maintenances = DataProvider.supabase.from("maintenances").select(
+                        columns = columns
+                    ) {
+                        filter {
+                            eq("machine_id", machineId)
+                        }
+                        order(column = "created_at", order = Order.DESCENDING)
+                    }.decodeList<Maintenance>()
+                } else {
+                    Log.i("PMR","hi maintenances")
+                    val data = DataProvider.supabase.from("maintenances").select(
+                        columns = columns
+                    ) {
+                        order(column = "created_at", order = Order.DESCENDING)
                     }
-                    order(column = "created_at", order = Order.DESCENDING)
-                }.decodeList<Maintenance>()
-            } else if (!machineId.isNullOrEmpty()) {
-                maintenances = DataProvider.supabase.from("maintenances").select(
-                    columns = columns
-                ) {
-                    filter {
-                        eq("machine_id", machineId)
-                    }
-                    order(column = "created_at", order = Order.DESCENDING)
-                }.decodeList<Maintenance>()
-            } else {
-                Log.i("PMR","hi maintenances")
-                val data = DataProvider.supabase.from("maintenances").select(
-                    columns = columns
-                ) {
-                    order(column = "created_at", order = Order.DESCENDING)
+                        Log.i("PMR", data.data.toString())
+                            maintenances = data.decodeList<Maintenance>()
                 }
-                    Log.i("PMR", data.data.toString())
-                        maintenances = data.decodeList<Maintenance>()
-            }
 
-            if (maintenances.isNotEmpty()) {
-
-                adapter.show(maintenances)
-            } else {
-                Toast.makeText(this@MaintenanceActivity, "Aucune maintenance trouvée", Toast.LENGTH_SHORT).show()
+                if (maintenances.isNotEmpty()) {
+                    adapter.show(maintenances)
+                } else {
+                    Toast.makeText(this@MaintenanceActivity, "Aucune maintenance trouvée", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@MaintenanceActivity, getString(R.string.erreur), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

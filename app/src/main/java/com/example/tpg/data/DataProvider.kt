@@ -3,6 +3,7 @@ package com.example.tpg.data
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.gotrue.Auth
 import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.storage.Storage
 
 object DataProvider {
 
@@ -15,5 +16,6 @@ object DataProvider {
     ) {
         install(Postgrest)
         install(Auth)
+        install(Storage)
     }
 }

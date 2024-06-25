@@ -24,6 +24,8 @@ class MaintenanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
         machineId.text = maintenance.machine.serial_number
         if (!maintenance.image_link.isNullOrEmpty()) {
             Picasso.get().load(maintenance.image_link).into(maintenanceImage)
+        } else {
+            maintenanceImage.setImageResource(R.drawable.no_image)
         }
     }
 }

@@ -52,5 +52,6 @@ dependencies {
 
     implementation(platform(libs.bom.get().toString()))
     implementation(libs.postgrest.kt)
+    implementation(libs.storage.kt)
     implementation(libs.ktor.client.android)
 }

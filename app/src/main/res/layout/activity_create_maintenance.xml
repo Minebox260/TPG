@@ -65,9 +65,10 @@
         <EditText
             android:id="@+id/edtDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textColorHint="@color/dark_gray"
+            android:gravity="top"
             android:hint="@string/description"
             android:autofillHints="@string/description"
             android:background="@drawable/edittext_background"
@@ -84,12 +85,26 @@
         android:layout_weight="1"
         android:padding="10dp">
 
-        <TextView
+        <ImageView
+            android:id="@+id/maintenanceImage"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:contentDescription="@string/maintenance_image"
+            app:srcCompat="@drawable/no_image"
+            />
+
+        <Button
+            android:id="@+id/prendre_photo_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/machine_id"
-            android:textColor="@color/black"
-            />
+            android:layout_gravity="center"
+            android:backgroundTint="@color/primary"
+            android:elevation="4dp"
+            android:stateListAnimator="@animator/button_state_list_animator"
+            android:text="@string/prendre_une_photo"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck" />
 
         <View
             android:layout_width="0dp"
