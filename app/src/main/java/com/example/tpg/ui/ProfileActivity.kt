@@ -3,6 +3,7 @@ package com.example.tpg.ui
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -30,7 +31,7 @@ class ProfileActivity : BaseActivity() {
         val imageProfile: ImageView = findViewById(R.id.profileImage)
 
         // On récupère l'ID fournie, ou, par défaut, celle de l'utilisateur connecté
-        val profileId = intent.getStringExtra("profileId") ?: PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", "")
+        val profileId = intent.getStringExtra("userId") ?: PreferenceManager.getDefaultSharedPreferences(this).getString("userId", "")
 
         val logoutBtn: Button = findViewById(R.id.deconnecter_button)
 
@@ -82,7 +83,9 @@ class ProfileActivity : BaseActivity() {
                 txtEmail.text = profile.email
                 txtTelephone.text = profile.phone
                 txtEntreprise.text = profile.entreprise
-                Picasso.get().load(profile.profile_icon_url).into(imageProfile)
+                if (!profile.profile_icon_url.isNullOrEmpty()) {
+                    Picasso.get().load(profile.profile_icon_url).into(imageProfile)
+                }
             } else {
                 Toast.makeText(this@ProfileActivity, "Impossible de trouver l'utilisateur", Toast.LENGTH_SHORT).show()
                 finish()
