@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -32,8 +33,15 @@ class ProfileActivity : BaseActivity() {
 
         // On récupère l'ID fournie, ou, par défaut, celle de l'utilisateur connecté
         val profileId = intent.getStringExtra("userId") ?: PreferenceManager.getDefaultSharedPreferences(this).getString("userId", "")
+        val loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getString("userId", "")
 
         val logoutBtn: Button = findViewById(R.id.deconnecter_button)
+
+        val logoutLayout: LinearLayout = findViewById(R.id.deconnecter_layout)
+
+        if (profileId == loggedInUserId) {
+            logoutLayout.visibility = Button.VISIBLE
+        }
 
         if (!profileId.isNullOrEmpty())
             getProfileData(

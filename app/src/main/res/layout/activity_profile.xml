@@ -132,8 +132,11 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/deconnecter_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:paddingHorizontal="10dp"
             android:gravity="center"
             android:layout_weight="1">
