@@ -2,8 +2,8 @@ package com.example.tpg.ui
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -31,13 +31,15 @@ class ProfileActivity : BaseActivity() {
         val txtEntreprise: TextView = findViewById(R.id.txtEntreprise)
         val imageProfile: ImageView = findViewById(R.id.profileImage)
 
+        val defaultPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         // On récupère l'ID fournie, ou, par défaut, celle de l'utilisateur connecté
-        val profileId = intent.getStringExtra("userId") ?: PreferenceManager.getDefaultSharedPreferences(this).getString("userId", "")
-        val loggedInUserId = PreferenceManager.getDefaultSharedPreferences(this).getString("userId", "")
+        val profileId = intent.getStringExtra("userId") ?: defaultPreferences.getString("userId", "")
+        val loggedInUserId = defaultPreferences.getString("userId", "")
 
         val logoutBtn: Button = findViewById(R.id.deconnecter_button)
-
+        val appelBtn: Button = findViewById(R.id.appel_button)
         val logoutLayout: LinearLayout = findViewById(R.id.deconnecter_layout)
+        val appelLayout: LinearLayout = findViewById(R.id.appel_layout)
 
         if (profileId == loggedInUserId) {
             logoutLayout.visibility = Button.VISIBLE
@@ -50,7 +52,10 @@ class ProfileActivity : BaseActivity() {
                 txtEmail,
                 txtTelephone,
                 txtEntreprise,
-                imageProfile)
+                imageProfile,
+                appelBtn,
+                appelLayout,
+                profileId != loggedInUserId)
 
 
         logoutBtn.setOnClickListener {
@@ -77,7 +82,10 @@ class ProfileActivity : BaseActivity() {
         txtEmail: TextView,
         txtTelephone: TextView,
         txtEntreprise: TextView,
-        imageProfile: ImageView) {
+        imageProfile: ImageView,
+        appelBtn: Button,
+        appelLayout: LinearLayout,
+        showAppelBtn: Boolean) {
 
         lifecycleScope.launch {
             val profile = DataProvider.supabase.from("profiles").select {
@@ -94,12 +102,21 @@ class ProfileActivity : BaseActivity() {
                 if (!profile.profile_icon_url.isNullOrEmpty()) {
                     Picasso.get().load(profile.profile_icon_url).into(imageProfile)
                 }
+
+                if (showAppelBtn && profile.email.isNotEmpty()) {
+                    appelLayout.visibility = Button.VISIBLE
+                    appelBtn.setOnClickListener {
+                        val uri = "msteams://teams.microsoft.com/l/call/0/0?users=${profile.email}&withVideo=true"
+                        val myIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                        myIntent.`package` = "com.microsoft.teams"
+                        startActivity(myIntent)
+                    }
+                }
             } else {
                 Toast.makeText(this@ProfileActivity, "Impossible de trouver l'utilisateur", Toast.LENGTH_SHORT).show()
                 finish()
                 val intent = Intent(this@ProfileActivity, ScannerActivity::class.java)
                 startActivity(intent)
-
             }
         }
     }

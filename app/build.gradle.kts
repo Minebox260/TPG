@@ -34,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
@@ -49,7 +50,7 @@ dependencies {
     implementation(libs.code.scanner)
     implementation(libs.gson)
     implementation (libs.squareup.picasso)
-
+    implementation (libs.converter.gson)
     implementation(platform(libs.bom.get().toString()))
     implementation(libs.postgrest.kt)
     implementation(libs.storage.kt)

@@ -45,7 +45,6 @@ class MaintenanceActivity : BaseActivity() {
                 """.trimIndent())
                 val maintenances: List<Maintenance>
                 if (!userId.isNullOrEmpty()) {
-                    Log.i("PMR", userId)
                     maintenances = DataProvider.supabase.from("maintenances").select(
                         columns = columns
                     ) {
@@ -64,14 +63,11 @@ class MaintenanceActivity : BaseActivity() {
                         order(column = "created_at", order = Order.DESCENDING)
                     }.decodeList<Maintenance>()
                 } else {
-                    Log.i("PMR","hi maintenances")
-                    val data = DataProvider.supabase.from("maintenances").select(
+                    maintenances = DataProvider.supabase.from("maintenances").select(
                         columns = columns
                     ) {
                         order(column = "created_at", order = Order.DESCENDING)
-                    }
-                        Log.i("PMR", data.data.toString())
-                            maintenances = data.decodeList<Maintenance>()
+                    }.decodeList<Maintenance>()
                 }
 
                 if (maintenances.isNotEmpty()) {

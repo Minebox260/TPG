@@ -55,4 +55,7 @@
     <string name="profil">Profil</string>
     <string name="scan_machine">Scan Machine</string>
     <string name="prendre_une_photo">Prendre une photo</string>
+    <string name="lancer_un_appel">Lancer un appel</string>
+    <string name="appel_technicien">Appel technicien</string>
+    <string name="qr_code_invalide">QR Code invalide</string>
 </resources>
