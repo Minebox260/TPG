@@ -48,7 +48,7 @@
     <string name="description">Description</string>
     <string name="op_rateur">Opérateur :</string>
     <string name="ajouter_la_maintenance">Ajouter la maintenance</string>
-    <string name="chargement">Chargement...</string>
+    <string name="chargement">Chargement…</string>
     <string name="ajout_de_maintenance">Ajout de maintenance</string>
     <string name="machine">Machine</string>
     <string name="maintenance">Maintenance</string>

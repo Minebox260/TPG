@@ -53,6 +53,8 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+        setupPermissions()
+
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 
         val usernameEditText: EditText = findViewById(R.id.username)
@@ -83,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                var user = User("", "")
+                val user: User
                 try {
                     user = Json.decodeFromString<User>(it.text)
                 } catch (e: Exception) {
