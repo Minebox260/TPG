@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     tools:context=".ui.CreateMaintenanceActivity"
     android:background="@color/white"
     android:orientation="horizontal"
@@ -28,7 +29,7 @@
                 android:text="@string/op_rateur"
                 android:textColor="@color/black"
                 android:paddingEnd="10dp"
-                />
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:id="@+id/txtOperateurEmail"
@@ -50,7 +51,7 @@
                 android:text="@string/machine_id"
                 android:textColor="@color/black"
                 android:paddingEnd="10dp"
-                />
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:id="@+id/txtMachineId"

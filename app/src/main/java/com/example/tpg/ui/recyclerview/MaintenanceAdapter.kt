@@ -1,6 +1,6 @@
 package com.example.tpg.ui.recyclerview
 
-import android.util.Log
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +16,7 @@ class MaintenanceAdapter: RecyclerView.Adapter<MaintenanceViewHolder>() {
         )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun show(maintenanceList: List<Maintenance>) {
         dataSource = maintenanceList
         notifyDataSetChanged()
