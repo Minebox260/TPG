@@ -123,6 +123,7 @@ class LoginActivity : AppCompatActivity() {
                     val editor = sharedPreferences.edit()
                         val user = DataProvider.supabase.auth.retrieveUserForCurrentSession(false)
                         editor.putString("userId", user.id)
+                        editor.putString("email", user.email)
                         editor.apply()
                     val myIntent = Intent(this@LoginActivity, MaintenanceActivity::class.java)
                     startActivity(myIntent)
