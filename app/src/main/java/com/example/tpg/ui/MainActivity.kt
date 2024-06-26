@@ -30,16 +30,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val myIntent = Intent(this, SettingsActivity::class.java)
-        startActivity(myIntent)
-
-        return super.onOptionsItemSelected(item)
-    }
 }
