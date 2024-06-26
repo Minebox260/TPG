@@ -51,11 +51,6 @@
             android:screenOrientation="sensorLandscape"
             tools:ignore="DiscouragedApi" />
         <activity
-            android:name=".ui.ExpertCallActivity"
-            android:exported="false"
-            android:screenOrientation="sensorLandscape"
-            tools:ignore="DiscouragedApi" />
-        <activity
             android:name=".ui.SettingsActivity"
             android:exported="false"
             android:screenOrientation="sensorLandscape"

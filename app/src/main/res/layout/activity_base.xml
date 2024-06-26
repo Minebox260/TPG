@@ -38,7 +38,7 @@
                 android:layout_width="40dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/maintenances_menu_logo"
+                android:contentDescription="@string/hf_commands_liste_maintenances_toutes_maintenances_maintenances"
                 app:srcCompat="@drawable/nav_maintenances" />
 
             <ImageView
@@ -46,7 +46,7 @@
                 android:layout_width="40dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/scan_menu_logo"
+                android:contentDescription="@string/hf_commands_scanner_machine_machine_scanner_qr_code_choisir_machine"
                 app:srcCompat="@drawable/nav_scan" />
 
             <ImageView
@@ -54,7 +54,7 @@
                 android:layout_width="40dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/history_menu_logo"
+                android:contentDescription="@string/hf_commands_historique_mes_maintenances_liste_maintenances_perso"
                 app:srcCompat="@drawable/nav_history" />
 
             <ImageView
@@ -62,7 +62,7 @@
                 android:layout_width="40dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:contentDescription="@string/profile_menu_logo"
+                android:contentDescription="@string/hf_commands_mon_compte_mes_infos_profil"
                 app:srcCompat="@drawable/default_user" />
 
         </LinearLayout>

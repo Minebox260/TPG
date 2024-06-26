@@ -32,6 +32,7 @@
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/hf_commands_se_connecter_lancer_commencer"
         android:layout_marginTop="16dp"
         android:elevation="4dp"
         android:backgroundTint="@color/primary"

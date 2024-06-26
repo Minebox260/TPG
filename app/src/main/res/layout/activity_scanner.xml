@@ -36,6 +36,7 @@
                     android:id="@+id/machine_scan_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/hf_text_dictation_hf_commands_entrer_id_je_connais_l_id_de_la_machine_id_machine_entrer_manuellement"
                     android:textColor="@color/black"
                     android:textColorHint="@color/dark_gray"
                     android:hint="@string/je_connais_l_id_de_la_machine"
@@ -44,12 +45,14 @@
                     android:elevation="4dp"
                     android:textAlignment="center"
                     android:layout_marginEnd="10dp"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    tools:ignore="ContentDescription" />
 
                 <Button
                     android:id="@+id/scan_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/hf_commands_valider"
                     android:layout_marginStart="10dp"
                     android:backgroundTint="@color/primary"
                     android:elevation="4dp"

@@ -61,13 +61,15 @@
                         android:layout_weight="1"
                         android:textColor="@color/black"
                         android:textColorHint="@color/dark_gray"
+                        android:contentDescription="@string/hf_text_dictation_hf_commands_identifiant"
                         android:hint="@string/identifiant"
                         android:autofillHints="@string/identifiant"
                         android:background="@drawable/edittext_background"
                         android:elevation="4dp"
                         android:textAlignment="center"
                         android:layout_marginBottom="12dp"
-                        android:inputType="text"/>
+                        android:inputType="text"
+                        tools:ignore="ContentDescription" />
 
                     <EditText
                         android:id="@+id/password"
@@ -75,6 +77,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:textColor="@color/black"
+                        android:contentDescription="@string/hf_text_dictation_hf_commands_mot_de_passe"
                         android:textColorHint="@color/dark_gray"
                         android:autofillHints="@string/mot_de_passe"
                         android:hint="@string/mot_de_passe"
@@ -83,7 +86,8 @@
                         android:textAlignment="center"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="6dp"
-                        android:inputType="textPassword"/>
+                        android:inputType="textPassword"
+                        tools:ignore="ContentDescription" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -92,6 +96,7 @@
                 android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/hf_commands_se_connecter_connexion"
                 android:layout_marginTop="10dp"
                 android:elevation="4dp"
                 android:backgroundTint="@color/primary"

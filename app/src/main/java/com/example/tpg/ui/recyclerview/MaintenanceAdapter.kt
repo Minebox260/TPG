@@ -26,7 +26,6 @@ class MaintenanceAdapter: RecyclerView.Adapter<MaintenanceViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MaintenanceViewHolder, position: Int) {
-        Log.d("MaintenanceAdapter", "onBindViewHolder position:$position $holder")
         holder.bind(dataSource[position])
     }
 

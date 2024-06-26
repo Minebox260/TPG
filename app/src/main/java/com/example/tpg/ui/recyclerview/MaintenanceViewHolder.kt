@@ -38,6 +38,8 @@ class MaintenanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
             maintenanceImage.setImageResource(R.drawable.no_image)
         }
 
+        userInfos.contentDescription = "hf_commands:Sélectionner ${maintenance.profile.email},Sélectionner ${maintenance.profile.name},${maintenance.profile.email},${maintenance.profile.name}"
+
         userInfos.setOnClickListener {
             val myIntent = Intent(itemView.context, ProfileActivity::class.java)
             myIntent.putExtra("userId", maintenance.profile.user_id)

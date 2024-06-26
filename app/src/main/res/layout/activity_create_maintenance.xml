@@ -68,13 +68,15 @@
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:textColorHint="@color/dark_gray"
+            android:contentDescription="@string/hf_text_dictation_hf_commands_entrer_description"
             android:gravity="top"
-            android:hint="@string/description"
             android:autofillHints="@string/description"
+            android:hint="@string/description"
             android:background="@drawable/edittext_background"
             android:elevation="4dp"
             android:layout_marginBottom="12dp"
-            android:inputType="text|textMultiLine"/>
+            android:inputType="text|textMultiLine"
+            tools:ignore="ContentDescription" />
 
     </LinearLayout>
 
@@ -99,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/primary"
+            android:contentDescription="@string/hf_commands_prendre_photo_prendre_une_photo_ajouter_photo_ajouter_une_photo"
             android:elevation="4dp"
             android:stateListAnimator="@animator/button_state_list_animator"
             android:text="@string/prendre_une_photo"
@@ -109,7 +112,8 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/creer_maintenance_button"
@@ -119,6 +123,7 @@
             android:backgroundTint="@color/primary"
             android:elevation="4dp"
             android:stateListAnimator="@animator/button_state_list_animator"
+            android:contentDescription="@string/hf_commands_terminer_ajouter_maintenance"
             android:text="@string/ajouter_la_maintenance"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
