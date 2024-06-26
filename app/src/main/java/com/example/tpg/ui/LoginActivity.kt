@@ -124,7 +124,7 @@ class LoginActivity : AppCompatActivity() {
                         val user = DataProvider.supabase.auth.retrieveUserForCurrentSession(false)
                         editor.putString("userId", user.id)
                         editor.apply()
-                    val myIntent = Intent(this@LoginActivity, ScannerActivity::class.java)
+                    val myIntent = Intent(this@LoginActivity, MaintenanceActivity::class.java)
                     startActivity(myIntent)
                     finish()
                 }

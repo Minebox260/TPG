@@ -60,9 +60,9 @@
     <string name="qr_code_invalide">QR Code invalide</string>
     <string name="hf_commands_terminer_ajouter_maintenance">hf_commands:Terminer,Ajouter maintenance</string>
     <string name="hf_commands_prendre_photo_prendre_une_photo_ajouter_photo_ajouter_une_photo">hf_commands:Prendre photo,Prendre une photo,Ajouter photo,Ajouter une photo</string>
-    <string name="hf_text_dictation_hf_commands_entrer_description">hf_text_dictation|hf_commands:Entrer description</string>
+    <string name="hf_text_dictation_hf_commands_entrer_description">hf_text_dictation|hf_commands:Entrer description, Description</string>
     <string name="hf_commands_liste_maintenances_toutes_maintenances_maintenances">hf_commands:Liste maintenances,Toutes maintenances, Maintenances</string>
-    <string name="hf_commands_scanner_machine_machine_scanner_qr_code_choisir_machine">hf_commands:Scanner machine,Machine,Scanner QR code,Choisir machine</string>
+    <string name="hf_commands_scanner_machine_machine_scanner_qr_code_choisir_machine">hf_commands:Scanner machine,Machine,Scanner QR code,Choisir machine, Scanner</string>
     <string name="hf_commands_historique_mes_maintenances_liste_maintenances_perso">hf_commands:Historique,Mes maintenances,Liste maintenances perso</string>
     <string name="hf_commands_mon_compte_mes_infos_profil">hf_commands:Mon compte,Mes infos,Profil</string>
     <string name="hf_text_dictation_hf_commands_identifiant">hf_text_dictation|hf_commands:Identifiant</string>
